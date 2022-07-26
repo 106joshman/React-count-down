@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./header";
+import { FiMessageSquare } from "react-icons/fi";
+import { useState } from "react";
+import Chatbot from "./chat-bot";
 
 function App() {
+  const [show, setShow] = useState(false);
+
+  // const handleShow = (e) => {
+  //   if (show) {
+  //     setShow(true);
+  //   }
+    // else {
+    //   setShow(!show);
+    // }
+  // };
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      MY CHAT-BOX
+      {show && <Chatbot />}
+      <div className="message_icon w-[60px] h-[60px] bg-purple-500 rounded-full grid place-items-center absolute bottom-0 right-0 mr-5 mb-5 cursor-pointer bounce">
+        <button className="" onClick={(e) => setShow(true)}>
+          <FiMessageSquare size={32} color="white" />
+        </button>
+      </div>
     </div>
   );
 }
