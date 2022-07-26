@@ -12,3 +12,15 @@ body, .App {
   width: 100vw;
   height: 100vh;
 }
+
+.body_bttn button{
+  background-color: gray;
+  border-radius: 8px;
+  padding: 8px;
+  color: white;
+  margin: 4px 0;
+}
+
+.save-Chat li{
+  list-style: none;
+}

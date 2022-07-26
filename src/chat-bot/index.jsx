@@ -1,69 +1,37 @@
-import React, { useState } from "react";
-import image from "../assets/bot.png";
-import { FaRegPaperPlane } from "react-icons/fa";
+import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import face from "../assets/bot.jpg";
 
-const Chatbot = (props) => {
-  const [chat, setChat] = useState("");
-  //   const handleChange = (e) => {
-  //     setChat(e.target.value);
-  //   };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(chat);
-  };
-
+const Bot = (props) => {
   return (
-    <>
-      <div
-        className="wrapper border rounded-lg bottom-0 right-0 absolute z-10 w-[350px] h-[400px] md:h-[400px] p-2  mb-3 mx-auto bg-[#07120d]"
-      >
-        <header>
-          <div className="head flex flex-row justify-between">
-            <div className="left flex flex-row">
-              <img
-                src={image}
-                alt=""
-                srcset=""
-                className="w-[50px] h-[50px] rounded-full"
-              />
-              <div className="right text-white ml-2">
-                <div className="description_name font-semibold">ChatBot.</div>
-                <div className="description_name text-green-500">Happy</div>
-              </div>
-            </div>
-            <div className="close_bttn ">
-              <button className="text-white" onClick={props.close}>
-                <AiOutlineClose size={32} />
-              </button>
-            </div>
+    <div className="wrapper p-2 z-10 absolute overflow-hidden transition ease-in-out duration-150">
+      <div className="border rounded-lg p-1 bg-blue-600">
+        <div className="close_bttn flex justify-end">
+          <button className="text-white" onClick={props.close}>
+            <AiOutlineClose size={24} />
+          </button>
+        </div>
+        <div className="header flex justify-evenly items-center text-center border-gray-500 border-b shadow-md rounded-md">
+          <img
+            src={face}
+            alt="a welcome bot face"
+            className="rounded-full h-[100px] w-[100px]"
+            srcSet=""
+          />
+          <div className="text font-bold text-2xl">Hello!</div>
+        </div>
+        <div className="wrap w-[350px] mt-5 p-2">
+          <p>Hello Welcome to My space.</p>{" "}
+          <div className="body_bttn flex flex-col items-start">
+            <button>How can I help you?</button>
+            <button>Have you heard of chop life gang?</button>
+            <button>1 plus 1 ?</button>
+            <button>Thank you for testing my Dev Bot. &#9996;</button>
           </div>
-        </header>
-        <div className="chat_wrapper">
-          <form action="" onSubmit={handleSubmit}>
-            <div className="text_field flex flex-row items-center bottom-0 absolute mb-3 justify-between w-[95%]">
-              <input
-                type="text"
-                name="message"
-                id="mssg"
-                value={chat}
-                onChange={(e) => setChat(e.target.value)}
-                className=" h-[50px] border-none outline-none p-3 bg-[#edeced] rounded-md w-[75%]"
-                placeholder="Enter your message here"
-              />
-              <div className="bttn items-center flex justify-evenly place-items-center text-white bg-[#363062] border-none outline-none font-semibold text-base rounded-md h-[50px] w-[80px]">
-                <FaRegPaperPlane />
-                <input
-                  type="submit"
-                  value="Send"
-                />
-              </div>
-            </div>
-          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Chatbot;
+export default Bot;

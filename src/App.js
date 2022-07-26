@@ -1,28 +1,58 @@
 import Header from "./header";
 import { FiMessageSquare } from "react-icons/fi";
 import { useState } from "react";
-import Chatbot from "./chat-bot";
+import Chatbox from "./chat-box";
+import bot from "./assets/370.png";
+import Bot from "./chat-bot";
 
 function App() {
-  const [show, setShow] = useState(false);
+  const [showBox, setShowBox] = useState(false);
+  const [showBot, setShowBot] = useState(false);
 
-  const handleShow = () => {
-    setShow(!show);
+  const handleShowBox = () => {
+    setShowBox(!showBox);
   };
+   const handleShowBot =()=>{
+    setShowBot(!showBot)
+   }
 
   return (
     <div className="App" onClick={(e) => e.stopPropagation()}>
       <Header />
       MY CHAT-BOX
-      {show && (
+      {showBox && (
         <div className="wrap px-2">
-          <Chatbot show={show} close={() => setShow(false)} />
+          <Chatbox showBox={showBox} close={() => setShowBox(false)} />
         </div>
       )}
-      <div className="message_icon w-[60px] h-[60px] bg-purple-500 rounded-full grid place-items-center absolute bottom-0 right-0 mr-5 mb-5 cursor-pointer bounce">
-        <button className="relative" onClick={handleShow}>
-          <FiMessageSquare size={32} color="white" />
-        </button>
+      {showBot && (
+        <div className="bot_wrap">
+          <Bot showBot={showBot} close={() => setShowBot(false)}/>
+        </div>
+      )}
+      <div className="launch_button flex justify-between absolute items-center w-full bottom-0 right-0">
+        <div className="bot_left">
+          <div
+            className="message_icon w-[60px] h-[60px] bg-black rounded-full grid place-items-center ml-5 mb-5 cursor-pointer relative hover:animate-bounce"
+            title="Chat bot"
+          >
+            <button className="relative" onClick={handleShowBot}>
+              <img
+                src={bot}
+                alt="bot image"
+                className="rounded-full h-[50px] w-[50px]"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          className="message_icon w-[60px] h-[60px] bg-purple-500 rounded-full grid place-items-center relative mr-5 mb-5 cursor-pointer hover:animate-pulse"
+          title="Chat box"
+        >
+          <button className="relative" onClick={handleShowBox}>
+            <FiMessageSquare size={32} color="white" />
+          </button>
+        </div>
       </div>
     </div>
   );
