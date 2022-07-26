@@ -16,8 +16,7 @@ const Chatbot = (props) => {
   return (
     <>
       <div
-        className="wrapper border rounded-lg bottom-0 right-0 absolute z-10 w-[400px] h-[400px] md:h-[400px] p-3 mr-5 mb-5 mx-auto bg-[#07120d]"
-        onClick={(e) => e.stopPropagation()}
+        className="wrapper border rounded-lg bottom-0 right-0 absolute z-10 w-[350px] h-[400px] md:h-[400px] p-2  mb-3 mx-auto bg-[#07120d]"
       >
         <header>
           <div className="head flex flex-row justify-between">
