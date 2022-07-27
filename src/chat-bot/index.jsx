@@ -4,7 +4,7 @@ import face from "../assets/bot.jpg";
 
 const Bot = (props) => {
   return (
-    <div className="wrapper p-2 z-10 absolute overflow-hidden transition ease-in-out duration-150">
+    <div className="wrapper p-2 z-10 overflow-hidden transition ease-in-out duration-150">
       <div className="border rounded-lg p-1 bg-blue-600">
         <div className="close_bttn flex justify-end">
           <button className="text-white" onClick={props.close}>

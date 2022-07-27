@@ -12,14 +12,14 @@ function App() {
   const handleShowBox = () => {
     setShowBox(!showBox);
   };
-   const handleShowBot =()=>{
-    setShowBot(!showBot)
-   }
+  const handleShowBot = () => {
+    setShowBot(!showBot);
+  };
 
   return (
     <div className="App" onClick={(e) => e.stopPropagation()}>
       <Header />
-      MY CHAT-BOX
+      <p className="text-center font-bold">MY CHAT-BOTX &#10084;</p>
       {showBox && (
         <div className="wrap px-2">
           <Chatbox showBox={showBox} close={() => setShowBox(false)} />
@@ -27,7 +27,7 @@ function App() {
       )}
       {showBot && (
         <div className="bot_wrap">
-          <Bot showBot={showBot} close={() => setShowBot(false)}/>
+          <Bot showBot={showBot} close={() => setShowBot(false)} />
         </div>
       )}
       <div className="launch_button flex justify-between absolute items-center w-full bottom-0 right-0">
@@ -39,7 +39,7 @@ function App() {
             <button className="relative" onClick={handleShowBot}>
               <img
                 src={bot}
-                alt="bot image"
+                alt="bot"
                 className="rounded-full h-[50px] w-[50px]"
               />
             </button>
