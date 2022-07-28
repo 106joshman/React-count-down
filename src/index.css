@@ -27,8 +27,11 @@ body,
 }
 
 .chat_text {
-  text-align: -webkit-right;
-  width: 80%;
+  /* text-align: -webkit-right; */
+  width: 100%;
+  text-align: center;
+  /* background: rgba(2, 2, 2, 0.3); */
+  /* background: #000000cc; */
 }
 
 .chat_item {
@@ -40,7 +43,7 @@ body,
   border-bottom-right-radius: 0.5rem/* 8px */;
   border-bottom-left-radius: 0.5rem/* 8px */;
   border-top-left-radius: 0.5rem/* 8px */;
-  text-align: left;
+  text-align: left !important;
 
 }
 
@@ -48,5 +51,6 @@ body,
   border-top-right-radius: 0.5rem/* 8px */;
   border-bottom-right-radius: 0.5rem/* 8px */;
   border-bottom-left-radius: 0.5rem/* 8px */;
-  text-align: right;
+  text-align: -webkit-right;
+  text-align: right !important;
 }

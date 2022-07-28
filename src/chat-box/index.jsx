@@ -13,14 +13,14 @@ const Chatbox = (props) => {
     const id = message.length + 1;
     setChats([...chats, { id: id, text: message, completed: false }]);
     setMessage("");
-    if (!message) {
-      alert("Enter your message...");
+    if (message === "") {
+      return false
     }
   };
 
   return (
     <>
-      <div className="wrapper flex flex-col px-1 md:w-[70%] mx-auto">
+      <div className="wrapper flex flex-col px-1 w-[90%] md:w-[60%] mx-auto">
         <header>
           <div className="head flex flex-row justify-between p-4 rounded-t-xl bg-[#07120d] items-center">
             <div className="left flex flex-row">
@@ -47,9 +47,9 @@ const Chatbox = (props) => {
           </div>
         </header>
 
-        <div className="chat_holder bg-[#32823feb] rounded-b-lg">
+        <div className="chat_holder border-gray-500 border rounded-b-xl">
           <div className="chat_wrapper">
-            <div className="save-Chat text-white flex p-2 justify-end">
+            <div className="save-Chat text-white text-center flex p-2 justify-end">
               <ul className="chat_text overflow-y-scroll p-1 h-[20em] md:h-[35em]">
                 {chats.map((item) => {
                   return (
@@ -64,7 +64,7 @@ const Chatbox = (props) => {
               </ul>
             </div>
             {/* text_field items-center mx-auto h-[60px] */}
-            <div className="bg-[#32823feb] rounded-b-xl">
+            <div className=" rounded-b-xl border-t-2 border-gray-300 bg-[#000000cc]">
               <form
                 action=""
                 className="flex justify-between px-1 items-center h-[60px]"
@@ -77,7 +77,7 @@ const Chatbox = (props) => {
                     id="mssg"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className=" border-none outline-none p-3 placeholder-gray-800 text-xl placeholder:text-xl  rounded-xl w-full"
+                    className=" border-none outline-none p-2 placeholder-blue-500 bg-transparent text-xl placeholder:text-xl text-white rounded-xl w-full"
                     autoComplete={false}
                     placeholder="Message..."
                   />

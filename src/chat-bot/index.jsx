@@ -20,7 +20,7 @@ const Bot = (props) => {
           />
           <div className="text font-bold text-2xl">Hello!</div>
         </div>
-        <div className="wrap w-[350px] mt-5 p-2">
+        <div className="wrap mt-5 p-2">
           <p>Hello Welcome to My space.</p>{" "}
           <div className="body_bttn flex flex-col items-start">
             <button>How can I help you?</button>
