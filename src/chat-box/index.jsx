@@ -77,7 +77,7 @@ const Chatbox = (props) => {
                 className="flex justify-between px-1 items-center h-[60px]"
                 onSubmit={handleSubmit}
               >
-                <div className="w-[80%]">
+                <div className="w-full md:w-[80%]">
                   <input
                     type="text"
                     name="message"
@@ -89,7 +89,7 @@ const Chatbox = (props) => {
                     placeholder="Message..."
                   />
                 </div>
-                <div className="bttn text-white bg-[#363062] border-none cursor-pointer outline-none font-semibold text-base rounded-xl items-center flex">
+                <div className="bttn text-white bg-[#363062] border-none cursor-pointer outline-none font-semibold text-base rounded-xl items-center hidden md:flex">
                   <button
                     type="submit"
                     className="flex justify-between py-1 px-3 place-items-center items-center h-[52px]"
