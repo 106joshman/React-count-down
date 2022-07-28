@@ -6,13 +6,10 @@ import { AiOutlineClose } from "react-icons/ai";
 const Chatbox = (props) => {
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
-  //   const handleChange = (e) => {
-  //     setChat(e.target.value);
-  //   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(message);
-    // setChats(message);
     const id = message.length + 1;
     setChats([...chats, { id: id, text: message, completed: false }]);
     setMessage("");
@@ -23,9 +20,9 @@ const Chatbox = (props) => {
 
   return (
     <>
-      <div className="wrapper border h-screen rounded-lg bottom-0 right-0 absolute z-10 w-full px-2 pt-7 md:w-[380px] mb-3 mx-auto bg-[#07120d]">
+      <div className="wrapper flex flex-col px-1 md:w-[70%] mx-auto">
         <header>
-          <div className="head flex flex-row justify-between">
+          <div className="head flex flex-row justify-between p-4 rounded-t-xl bg-[#07120d] items-center">
             <div className="left flex flex-row">
               <img
                 src={image}
@@ -34,8 +31,10 @@ const Chatbox = (props) => {
                 className="w-[50px] h-[50px] rounded-full"
               />
               <div className="right text-white ml-2">
-                <div className="description_name font-semibold">ChatBox.</div>
-                <div className="description_name text-sm text-green-500">
+                <div className="description_name text-2xl font-semibold">
+                  ChatBox.
+                </div>
+                <div className="description_name text-base text-green-500">
                   Happy
                 </div>
               </div>
@@ -47,44 +46,50 @@ const Chatbox = (props) => {
             </div>
           </div>
         </header>
-        <div className="chat_holder bottom-0 fixed right-0 left-0 mb-6">
-          <div className="chat_wrapper w-full">
-            <div className="save-Chat text-white mt-3 overflow-y-scroll flex p-2 justify-end">
-              <ul className="chat_text ">
+
+        <div className="chat_holder bg-[#32823feb] rounded-b-lg">
+          <div className="chat_wrapper">
+            <div className="save-Chat text-white flex p-2 justify-end">
+              <ul className="chat_text overflow-y-scroll p-1 h-[20em] md:h-[35em]">
                 {chats.map((item) => {
                   return (
-                    <p
+                    <li
                       key={item.id}
-                      className="chat_item px-3 my-3 first-of-type:mt-0 py-0.5 bg-[#306238] border-none outline-none flex-wrap rounded-l-lg rounded-b-lg "
+                      className="chat_item  px-3 my-1.5 first-of-type:mt-0 py-0.5 border-none outline-none bg-[#685368] flex-wrap "
                     >
                       {item.text}
-                    </p>
+                    </li>
                   );
                 })}
               </ul>
             </div>
-
-            <div className="mt-5">
-              <form action="" onSubmit={handleSubmit}>
-                <div className="text_field flex flex-row items-center mx-auto justify-between w-[95%]">
+            {/* text_field items-center mx-auto h-[60px] */}
+            <div className="bg-[#32823feb] rounded-b-xl">
+              <form
+                action=""
+                className="flex justify-between px-1 items-center h-[60px]"
+                onSubmit={handleSubmit}
+              >
+                <div className="w-[80%]">
                   <input
                     type="text"
                     name="message"
                     id="mssg"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className=" h-[50px] border-none outline-none p-3 bg-[#edeced] rounded-md w-[75%]"
-                    placeholder="Enter your message here"
+                    className=" border-none outline-none p-3 placeholder-gray-800 text-xl placeholder:text-xl  rounded-xl w-full"
+                    autoComplete={false}
+                    placeholder="Message..."
                   />
-                  <div className="bttn text-white bg-[#363062] border-none cursor-pointer outline-none font-semibold text-base rounded-md h-[50px] w-[80px] flex justify-center place-items-center">
-                    <button
-                      type="submit"
-                      className=" flex justify-between place-items-center items-center"
-                    >
-                      <span className="mr-3"> Send</span>
-                      <FaRegPaperPlane />
-                    </button>
-                  </div>
+                </div>
+                <div className="bttn text-white bg-[#363062] border-none cursor-pointer outline-none font-semibold text-base rounded-xl items-center flex">
+                  <button
+                    type="submit"
+                    className="flex justify-between py-1 px-3 place-items-center items-center h-[52px]"
+                  >
+                    <span className="mr-3"> Send</span>
+                    <FaRegPaperPlane />
+                  </button>
                 </div>
               </form>
             </div>

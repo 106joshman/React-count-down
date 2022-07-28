@@ -10,7 +10,7 @@
 
 body,
 .App {
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
 }
 
@@ -28,11 +28,25 @@ body,
 
 .chat_text {
   text-align: -webkit-right;
-  width: 15em;
-  height: 36em;
+  width: 80%;
 }
 
 .chat_item {
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.chat_item:nth-child(even) {
+  border-bottom-right-radius: 0.5rem/* 8px */;
+  border-bottom-left-radius: 0.5rem/* 8px */;
+  border-top-left-radius: 0.5rem/* 8px */;
+  text-align: left;
+
+}
+
+.chat_item:nth-child(odd) {
+  border-top-right-radius: 0.5rem/* 8px */;
+  border-bottom-right-radius: 0.5rem/* 8px */;
+  border-bottom-left-radius: 0.5rem/* 8px */;
+  text-align: right;
 }
