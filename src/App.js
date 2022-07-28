@@ -24,7 +24,7 @@ function App() {
       <div className="launch_button flex justify-between items-center">
         <div className="bot_left">
           <div
-            className="message_icon w-[60px] h-[60px] bg-black rounded-full grid place-items-center m-2 cursor-pointer"
+            className="message_icon w-[60px] h-[60px] bg-black rounded-full grid place-items-center animate-bounce m-2 cursor-pointer"
             title="Chat bot"
           >
             <button className="" onClick={handleShowBot}>
@@ -37,8 +37,10 @@ function App() {
           </div>
         </div>
 
+        <div className="instruction">👈🏾{" "}Tap any button{" "}👉🏾</div>
+
         <div
-          className="message_icon w-[60px] h-[60px] bg-purple-500 rounded-full grid place-items-center m-2 cursor-pointer"
+          className="message_icon w-[60px] h-[60px] bg-purple-500 rounded-full grid place-items-center m-2 animate-bounce cursor-pointer"
           title="Chat box"
         >
           <button className="" onClick={handleShowBox}>
