@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import image from "../assets/bot.png";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
@@ -6,6 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 const Chatbox = (props) => {
   const [message, setMessage] = useState("");
   const [chats, setChats] = useState([]);
+  const bottomRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,9 +15,14 @@ const Chatbox = (props) => {
     setChats([...chats, { id: id, text: message, completed: false }]);
     setMessage("");
     if (message === "") {
-      return false
+      return false;
     }
   };
+
+  useEffect(() => {
+    // 👇️ scroll to bottom every time messages change
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chats]);
 
   return (
     <>
@@ -55,12 +61,13 @@ const Chatbox = (props) => {
                   return (
                     <li
                       key={item.id}
-                      className="chat_item  px-3 my-1.5 first-of-type:mt-0 py-0.5 border-none outline-none bg-[#685368] flex-wrap "
+                      className="chat_item  px-3 my-1.5 first-of-type:mt-0 py-0.5 border-none outline-none flex-wrap "
                     >
                       {item.text}
                     </li>
                   );
                 })}
+                <div ref={bottomRef} />
               </ul>
             </div>
             {/* text_field items-center mx-auto h-[60px] */}
