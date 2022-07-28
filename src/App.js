@@ -11,9 +11,11 @@ function App() {
 
   const handleShowBox = () => {
     setShowBox(!showBox);
+    setShowBot(false);
   };
   const handleShowBot = () => {
     setShowBot(!showBot);
+    setShowBox(false);
   };
 
   return (
@@ -37,7 +39,7 @@ function App() {
           </div>
         </div>
 
-        <div className="instruction">👈🏾{" "}Tap any button{" "}👉🏾</div>
+        <div className="instruction">👈🏾 Tap any button 👉🏾</div>
 
         <div
           className="message_icon w-[60px] h-[60px] bg-purple-500 rounded-full grid place-items-center m-2 animate-bounce cursor-pointer"
